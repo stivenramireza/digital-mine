@@ -2,9 +2,7 @@
   <div class="container">
     <div>
       <header class="content-logos">
-        <logo />
         <span class="plus">+</span>
-        <VuesaxLogo />
       </header>
       <h1 class="title">Nuxt.js</h1>
       <h2 class="subtitle">
@@ -65,14 +63,8 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuesaxLogo from '~/components/VuesaxLogo.vue'
-
 export default {
-  components: {
-    Logo,
-    VuesaxLogo,
-  },
+  components: {},
 }
 </script>
 
