@@ -1,30 +1,32 @@
 <template>
   <v-footer dark padless>
-    <v-card flat tile class="indigo lighten-1 white--text text-center">
-      <v-card-text>
-        <v-btn v-for="icon in icons" :key="icon" class="mx-4 white--text" icon>
-          <v-icon size="24px">
-            {{ icon }}
+    <v-card class="card-container">
+      <v-card-text class="card-text-container">
+        <v-btn
+          v-for="(item, index) in icons"
+          :key="index"
+          :href="item.link"
+          target="_blank"
+          icon
+        >
+          <v-icon size="35px">
+            {{ item.name }}
           </v-icon>
         </v-btn>
       </v-card-text>
-
-      <v-card-text class="white--text pt-0">
-        Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet.
-        Mauris cursus commodo interdum. Praesent ut risus eget metus luctus
-        accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim a
-        sit amet dui. Duis commodo vitae velit et faucibus. Morbi vehicula
-        lacinia malesuada. Nulla placerat augue vel ipsum ultrices, cursus
-        iaculis dui sollicitudin. Vestibulum eu ipsum vel diam elementum tempor
-        vel ut orci. Orci varius natoque penatibus et magnis dis parturient
-        montes, nascetur ridiculus mus.
+      <v-card-text class="card-text-container">
+        © {{ new Date().getFullYear() }} Digital Mine
       </v-card-text>
-
-      <v-divider></v-divider>
-
-      <v-card-text class="white--text">
-        {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
-      </v-card-text>
+      <v-btn
+        fab
+        absolute
+        top
+        right
+        href="https://wa.me/573117689541"
+        target="_blank"
+      >
+        <v-icon>mdi-whatsapp</v-icon>
+      </v-btn>
     </v-card>
   </v-footer>
 </template>
@@ -32,7 +34,36 @@
 <script>
 export default {
   data: () => ({
-    icons: ['mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram'],
+    icons: [
+      {
+        name: 'mdi-facebook',
+        link: 'https://www.facebook.com/Mine.digitaltec/',
+      },
+      {
+        name: 'mdi-instagram',
+        link: 'https://www.instagram.com/digital.mine/',
+      },
+      {
+        name: 'mdi-whatsapp',
+        link: 'https://wa.me/573117689541',
+      },
+    ],
   }),
 }
 </script>
+
+<style lang="scss">
+.card-container {
+  width: 100%;
+}
+.divider-container {
+  background: white;
+}
+.card-text-container {
+  display: flex;
+  justify-content: center;
+  background: rgb(61, 56, 88);
+  color: white;
+  font-size: 16px;
+}
+</style>

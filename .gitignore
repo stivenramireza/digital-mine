@@ -3,3 +3,5 @@ node_modules
 dist
 static/sw.js
 .eslintcache
+.env
+.env.dev
