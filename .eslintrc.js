@@ -19,7 +19,6 @@ module.exports = {
       'no-console': 'off',
       'vue/max-attributes-per-line': 'off',
       'prettier/prettier': ['error', {
-        htmlWhitespaceSensitivity: 'ignore',
         semi: false,
         singleQuote: true
       }]
