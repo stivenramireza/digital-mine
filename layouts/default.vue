@@ -1,15 +1,15 @@
 <template>
-  <div>
+  <v-app>
     <header>
       <Header />
     </header>
-    <main>
+    <v-main>
       <Nuxt />
-    </main>
+    </v-main>
     <footer>
       <Footer />
     </footer>
-  </div>
+  </v-app>
 </template>
 
 <script>

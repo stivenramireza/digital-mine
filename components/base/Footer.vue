@@ -24,6 +24,7 @@
         right
         href="https://wa.me/573117689541"
         target="_blank"
+        color="green"
       >
         <v-icon>mdi-whatsapp</v-icon>
       </v-btn>
@@ -62,7 +63,7 @@ export default {
 .card-text-container {
   display: flex;
   justify-content: center;
-  background: rgb(61, 56, 88);
+  background: #311b92;
   color: white;
   font-size: 16px;
 }
