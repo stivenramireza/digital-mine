@@ -7,21 +7,20 @@
         indeterminate
       ></v-progress-linear>
     </template>
-
     <v-img height="250" :src="imageUrl"></v-img>
-
     <v-card-title>{{ name }}</v-card-title>
-
-    <v-card-text>
-      <div class="subtitle-1">{{ price | priceFormat }} COP</div>
-      <div>{{ service }}</div>
-    </v-card-text>
-
+    <v-col v-if="hasScreens" class="d-flex" cols="12">
+      <v-select
+        v-model="selected"
+        :items="screens"
+        label="Pantallas"
+      ></v-select>
+    </v-col>
+    <v-card-text>{{ (price * selected) | priceFormat }}</v-card-text>
     <v-divider class="mx-4"></v-divider>
-
     <v-card-actions>
       <v-btn color="deep-purple lighten-2" text @click="reserve">
-        Solicitar servicio
+        <v-icon left>mdi-cart</v-icon> Agregar al carrito
       </v-btn>
     </v-card-actions>
   </v-card>
@@ -41,14 +40,14 @@ export default {
       default: '',
       required: true,
     },
+    hasScreens: {
+      type: Boolean,
+      default: false,
+      required: true,
+    },
     price: {
       type: Number,
       default: 0,
-      required: true,
-    },
-    service: {
-      type: String,
-      default: '',
       required: true,
     },
     imageUrl: {
@@ -59,7 +58,8 @@ export default {
   },
   data: () => ({
     loading: false,
-    selection: 1,
+    screens: [1, 2, 3, 4],
+    selected: 1,
   }),
   methods: {
     reserve() {
