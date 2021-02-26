@@ -1,7 +1,11 @@
 <template>
   <v-footer dark padless>
-    <v-card class="card-container">
-      <v-card-text class="card-text-container">
+    <v-card
+      flat
+      tile
+      class="blue-grey darken-4 white--text text-center card-container"
+    >
+      <v-card-text>
         <v-btn
           v-for="(item, index) in icons"
           :key="index"
@@ -14,20 +18,12 @@
           </v-icon>
         </v-btn>
       </v-card-text>
-      <v-card-text class="card-text-container">
-        © {{ new Date().getFullYear() }} Digital Mine
+
+      <v-divider></v-divider>
+
+      <v-card-text class="white--text">
+        © {{ new Date().getFullYear() }} <strong>Digital Mine</strong>
       </v-card-text>
-      <v-btn
-        fab
-        absolute
-        top
-        right
-        href="https://wa.me/573117689541"
-        target="_blank"
-        color="green"
-      >
-        <v-icon>mdi-whatsapp</v-icon>
-      </v-btn>
     </v-card>
   </v-footer>
 </template>
@@ -53,18 +49,8 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped>
 .card-container {
   width: 100%;
-}
-.divider-container {
-  background: white;
-}
-.card-text-container {
-  display: flex;
-  justify-content: center;
-  background: #311b92;
-  color: white;
-  font-size: 16px;
 }
 </style>

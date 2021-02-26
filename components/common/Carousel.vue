@@ -4,6 +4,7 @@
     hide-delimiter-background
     show-arrows-on-hover
     hide-delimiters
+    fullscreen
   >
     <v-carousel-item
       v-for="(item, index) in slides"
