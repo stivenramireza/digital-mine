@@ -13,17 +13,8 @@
         indeterminate
       ></v-progress-linear>
     </template>
-    <v-img width="350" height="135" :src="imageUrl"></v-img>
-    <v-col v-if="hasScreens" class="d-flex white--text" cols="12">
-      <v-select
-        v-model="selected"
-        :items="screens"
-        label="Pantallas"
-        item-color="blue-grey darken-3"
-        class="white--text"
-      ></v-select>
-    </v-col>
-    <v-col v-else class="mb-3">
+    <v-img width="400" height="135" :src="imageUrl"></v-img>
+    <v-col class="d-flex white--text" cols="12">
       <v-card-text class="white--text">{{ service }}</v-card-text>
     </v-col>
     <v-card-title class="white--text">{{

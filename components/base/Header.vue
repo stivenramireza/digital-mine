@@ -12,6 +12,7 @@
           v-for="item in items"
           :key="item.text"
           link
+          class="white--text"
           @click="$router.push({ path: item.link })"
         >
           <v-list-item-action>

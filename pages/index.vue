@@ -23,9 +23,6 @@ export default {
 </script>
 
 <style scoped>
-.app-container {
-  background: red;
-}
 .services-container {
   display: flex;
   justify-content: center;

@@ -1,5 +1,5 @@
 <template>
-  <v-app style="background: #37474f">
+  <v-app style="background: #455a64">
     <header>
       <Header />
     </header>
