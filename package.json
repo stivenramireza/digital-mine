@@ -15,7 +15,7 @@
     "@nuxtjs/axios": "^5.12.5",
     "core-js": "^3.8.3",
     "numeral": "^2.0.6",
-    "nuxt": "^2.14.12",
+    "nuxt": "^2.15.2",
     "typescript": "^4.1.5",
     "vuesax": "^4.0.1-alpha.25"
   },

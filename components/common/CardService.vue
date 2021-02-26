@@ -1,5 +1,11 @@
 <template>
-  <v-card :loading="loading" class="mx-auto my-12" max-width="374">
+  <v-card
+    :id="id"
+    :loading="loading"
+    class="mx-auto my-12"
+    max-width="374"
+    color="blue-grey darken-4 white--text"
+  >
     <template slot="progress">
       <v-progress-linear
         color="deep-purple"
@@ -7,19 +13,25 @@
         indeterminate
       ></v-progress-linear>
     </template>
-    <v-img height="250" :src="imageUrl"></v-img>
-    <v-card-title>{{ name }}</v-card-title>
-    <v-col v-if="hasScreens" class="d-flex" cols="12">
+    <v-img width="350" height="135" :src="imageUrl"></v-img>
+    <v-col v-if="hasScreens" class="d-flex white--text" cols="12">
       <v-select
         v-model="selected"
         :items="screens"
         label="Pantallas"
+        item-color="blue-grey darken-3"
+        class="white--text"
       ></v-select>
     </v-col>
-    <v-card-text>{{ (price * selected) | priceFormat }}</v-card-text>
+    <v-col v-else class="mb-3">
+      <v-card-text class="white--text">{{ service }}</v-card-text>
+    </v-col>
+    <v-card-title class="white--text">{{
+      (price * selected) | priceFormat
+    }}</v-card-title>
     <v-divider class="mx-4"></v-divider>
     <v-card-actions>
-      <v-btn color="deep-purple lighten-2" text @click="reserve">
+      <v-btn color="white" text @click="reserve">
         <v-icon left>mdi-cart</v-icon> Agregar al carrito
       </v-btn>
     </v-card-actions>
@@ -35,6 +47,11 @@ export default {
     },
   },
   props: {
+    id: {
+      type: Number,
+      default: 0,
+      required: true,
+    },
     name: {
       type: String,
       default: '',
@@ -48,6 +65,11 @@ export default {
     price: {
       type: Number,
       default: 0,
+      required: true,
+    },
+    service: {
+      type: String,
+      default: '',
       required: true,
     },
     imageUrl: {
