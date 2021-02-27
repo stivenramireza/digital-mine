@@ -1,7 +1,7 @@
 version: '3'
 services:
   digital-mine:
-    image: digital-mine:latest
+    image: digital-mine:staging
     networks:
       - traefik-public
     ports:
@@ -11,7 +11,7 @@ services:
         - traefik.enable=true
         - traefik.tags=traefik-public
         - traefik.port=3000
-        - traefik.frontend.rule=Host:digitalmine.stivenramireza.com
+        - traefik.frontend.rule=Host:staging.anutibara.com
         - traefik.docker.network=traefik-public
         - traefik.redirectorservice.frontend.entryPoints=http
         - traefik.redirectorservice.frontend.redirect.entryPoint=https
