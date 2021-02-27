@@ -1,35 +1,50 @@
 <template>
-  <v-card
-    :id="id"
-    :loading="loading"
-    class="mx-auto my-12"
-    max-width="374"
-    color="blue-grey darken-4 white--text"
-  >
-    <template slot="progress">
-      <v-progress-linear
-        color="deep-purple"
-        height="10"
-        indeterminate
-      ></v-progress-linear>
-    </template>
-    <v-img width="400" height="135" :src="imageUrl"></v-img>
-    <v-col class="d-flex white--text" cols="12">
-      <v-card-text class="white--text">{{ service }}</v-card-text>
-    </v-col>
-    <v-card-title class="white--text">{{
-      (price * selected) | priceFormat
-    }}</v-card-title>
-    <v-divider class="mx-4"></v-divider>
-    <v-card-actions>
-      <v-btn color="white" text @click="reserve">
-        <v-icon left>mdi-cart</v-icon> Agregar al carrito
-      </v-btn>
-    </v-card-actions>
-  </v-card>
+  <div>
+    <v-card
+      :id="id"
+      :loading="loading"
+      class="mx-auto my-12 mb-2 card-service"
+      max-height="400"
+      color="blue-grey darken-4 white--text"
+    >
+      <template slot="progress">
+        <v-progress-linear
+          color="white"
+          height="10"
+          indeterminate
+        ></v-progress-linear>
+      </template>
+      <v-img width="350" height="150" :src="imageUrl"></v-img>
+      <v-col class="d-flex white--text" cols="12">
+        <v-card-text class="white--text">{{ service }}</v-card-text>
+      </v-col>
+      <v-card-title class="white--text">{{ price | priceFormat }}</v-card-title>
+      <v-divider class="mx-4" color="white"></v-divider>
+      <v-card-actions>
+        <v-btn
+          v-if="!selected"
+          color="white"
+          text
+          @click="addProduct(id, name)"
+        >
+          <v-icon left>mdi-cart</v-icon> Agregar al carrito
+        </v-btn>
+        <v-btn v-else @click="removeProduct(id)">
+          <v-icon left>mdi-cart</v-icon> Eliminar del carrito
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+    <v-alert v-if="selected" type="success" :value="alert" dense>
+      Añadiste {{ name }} al carrito
+    </v-alert>
+    <v-alert v-else type="error" :value="alert" dense>
+      Eliminaste {{ name }} del carrito
+    </v-alert>
+  </div>
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 const numeral = require('numeral')
 export default {
   filters: {
@@ -46,11 +61,6 @@ export default {
     name: {
       type: String,
       default: '',
-      required: true,
-    },
-    hasScreens: {
-      type: Boolean,
-      default: false,
       required: true,
     },
     price: {
@@ -71,14 +81,41 @@ export default {
   },
   data: () => ({
     loading: false,
-    screens: [1, 2, 3, 4],
-    selected: 1,
+    selected: false,
+    alert: false,
   }),
+  computed: {
+    ...mapState({
+      products: (state) => state.car.products,
+    }),
+  },
   methods: {
-    reserve() {
+    ...mapMutations({
+      add: 'car/add',
+      remove: 'car/remove',
+    }),
+    addProduct(id, name) {
       this.loading = true
-      setTimeout(() => (this.loading = false), 2000)
+      this.alert = true
+      setTimeout(() => (this.loading = false), 1000)
+      this.add({ id, name })
+      this.selected = true
+      setTimeout(() => (this.alert = false), 1000)
+    },
+    removeProduct(id) {
+      this.loading = true
+      this.alert = true
+      setTimeout(() => (this.loading = false), 1000)
+      this.remove(id)
+      this.selected = false
+      setTimeout(() => (this.alert = false), 1000)
     },
   },
 }
 </script>
+
+<style scoped>
+.card-service {
+  width: 350px;
+}
+</style>

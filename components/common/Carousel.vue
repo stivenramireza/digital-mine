@@ -22,15 +22,15 @@ export default {
       slides: [
         {
           src:
-            'https://d500.epimg.net/cincodias/imagenes/2019/07/11/lifestyle/1562841657_226036_1562841728_noticia_normal.jpg',
+            'https://www.experta.com.ar/blogg/wp-content/uploads/sites/2/2021/01/nota-streaming.jpg',
         },
         {
           src:
-            'https://www.bbva.com/wp-content/uploads/2020/04/streaming-HBO-PLATAFORMAS-Netflix-Disney-1920x1180.jpg',
+            'https://www.notigape.com/thumburl/thumbnail/900x506/outbound/uploads/photos/8EXEIlljDl1xwApTFeRn.jpg',
         },
         {
           src:
-            'https://blog.formaciongerencial.com/wp-content/uploads/2020/01/Streaming-Wars-Ecuador.png',
+            'https://laopinion.com/wp-content/uploads/sites/3/2016/09/shutterstock_262337219.jpg?quality=80&strip=all&w=1000',
         },
       ],
     }

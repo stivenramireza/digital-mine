@@ -1,10 +1,9 @@
 <template>
-  <v-row align="center" justify="center">
+  <v-row align="center" justify="center" class="mb-10">
     <div v-for="(item, index) in services" :key="index" class="mr-4">
       <CardService
         :id="item.id"
         :name="item.name"
-        :has-screens="item.hasScreens"
         :price="item.price"
         :service="item.service"
         :image-url="item.imageUrl"
@@ -25,7 +24,6 @@ export default {
       {
         id: 1,
         name: 'Netflix',
-        hasScreens: true,
         price: 10000,
         service:
           'Disfruta del mejor entretenimiento llevado de 1 a 5 pantallas.',
@@ -35,7 +33,6 @@ export default {
       {
         id: 2,
         name: 'Amazon Prime',
-        hasScreens: false,
         price: 10000,
         service: 'Acceso hasta 3 dispositivos al mismo tiempo.',
         imageUrl:
@@ -45,17 +42,15 @@ export default {
         id: 3,
         name: 'HBO GO',
         price: 10000,
-        hasScreens: false,
         service:
           'Acceso hasta 3 dispositivos para que compartas con tus seres queridos.',
         imageUrl:
-          'https://play-lh.googleusercontent.com/DVjzXMZfBfHvCrCrbpUVzaBUKYrFKK3RErhnqhAMG_TNfNTxAC6G_XwLV4ian2-7vg',
+          'https://resized.space.rga.com/image/upload/c_fill,fl_progressive,q_auto:low,fl_lossy,f_auto,h_1080,w_1920/v1511208172/production/file-5a1334eceac2633844ac4d4d',
       },
       {
         id: 4,
         name: 'Spotify Premium',
         price: 8000,
-        hasScreens: false,
         service:
           'Descarga y escucha offline desde tu dispositivo y comparte tu música.',
         imageUrl:
@@ -65,7 +60,6 @@ export default {
         id: 5,
         name: 'Crunchyroll',
         price: 10000,
-        hasScreens: false,
         service:
           'Disfruta del mejor anime y series de manga al mejor estilo otaku.',
         imageUrl:
@@ -75,7 +69,6 @@ export default {
         id: 6,
         name: 'Disney Plus',
         price: 8000,
-        hasScreens: true,
         service:
           'El mejor catálogo de series y películas de Marvel, Pixar y Start.',
         imageUrl:

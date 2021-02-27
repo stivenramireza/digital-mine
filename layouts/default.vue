@@ -25,8 +25,16 @@ export default {
 </script>
 
 <style>
+body,
 html {
+  overflow-x: hidden;
   font-family: 'Helvetica';
   font-size: 18px;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
 }
 </style>

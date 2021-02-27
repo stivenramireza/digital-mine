@@ -5,18 +5,29 @@
       fixed
       clipped
       app
-      color="blue-grey darken-3"
+      color="blue-grey darken-3 white--text"
+      overlay-color="white"
     >
+      <v-row align="center" justify="center" class="mt-5 mb-5">
+        <img
+          src="https://assets.stivenramireza.com/spaces/digital-mine.png"
+          alt="digital-mine-logo"
+          width="50"
+          height="50"
+          class="navigation-icon"
+          @click="$router.push('/')"
+        />
+      </v-row>
+      <v-divider class="mx-4" color="white"></v-divider>
       <v-list>
         <v-list-item
           v-for="item in items"
           :key="item.text"
           link
-          class="white--text"
           @click="$router.push({ path: item.link })"
         >
           <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
+            <v-icon color="white">{{ item.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>
@@ -28,52 +39,88 @@
     </v-navigation-drawer>
     <v-app-bar color="blue-grey darken-4" dense fixed clipped-left app>
       <v-app-bar-nav-icon color="white" @click.stop="drawer = !drawer" />
-      <img
-        src="https://assets.stivenramireza.com/spaces/digital-mine.png"
-        alt="digital-mine-logo"
-        width="30"
-        height="30"
-        class="mr-2"
-      />
-      <v-toolbar-title class="mr-5 align-center">
+      <v-toolbar-title
+        class="mr-5 align-center toolbar-title"
+        @click="$router.push('/')"
+      >
         <span class="title white--text">Digital Mine</span>
       </v-toolbar-title>
       <v-spacer />
-      <v-toolbar-title class="mr-5 align-center toolbar-options">
-        <span class="header-item" to="/servicios">Servicios</span>
-        <span class="header-item">Soporte</span>
-        <span class="header-item">Renovaciones</span>
-        <span class="header-item">Contacto</span>
+      <v-toolbar-title class="mr-5 align-center">
+        <span class="header-item toolbar-options" to="/servicios"
+          >Servicios</span
+        >
+        <span class="header-item toolbar-options" to="/">Renovaciones</span>
+        <span class="header-item toolbar-options" to="/">Contacto</span>
+        <span class="header-item toolbar-options" to="/">Soporte</span>
+        <span v-if="products.length !== 0" class="header-item" to="/carrito">
+          <v-icon color="white">mdi-cart</v-icon>
+          <span class="dot">{{ products.length }}</span>
+        </span>
       </v-toolbar-title>
     </v-app-bar>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   data() {
     return {
       drawer: false,
       items: [
-        { icon: 'mdi-home', text: 'Inicio', link: '/' },
         { icon: 'mdi-television', text: 'Servicios', link: '/servicios' },
         { icon: 'mdi-calendar', text: 'Renovaciones', link: '/' },
         { icon: 'mdi-cellphone-android', text: 'Contacto', link: '/' },
+        { icon: 'mdi-help-circle', text: 'Soporte', link: '/' },
       ],
     }
+  },
+  computed: {
+    ...mapState({
+      products: (state) => state.car.products,
+    }),
   },
 }
 </script>
 
-<style scoped>
+<style>
 .header-item {
   color: white;
   font-size: 16px;
-  margin-right: 12px;
+  margin-left: 20px;
 }
 .header-item:hover {
   font-weight: bold;
   cursor: pointer;
+}
+.navigation-icon:hover {
+  cursor: pointer;
+}
+.toolbar-title:hover {
+  cursor: pointer;
+}
+.v-list-item .v-list-item__title {
+  color: white;
+}
+.v-list-item:hover {
+  background: #546e7a;
+}
+.dot-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dot {
+  background: red;
+  border-radius: 50%;
+  height: 26px;
+  width: 26px;
+  line-height: 26px;
+  display: inline-block;
+  text-align: center;
+  margin-right: 6px;
+  font-weight: bold;
 }
 @media (min-width: 320px) and (max-width: 550px) {
   .toolbar-options {
