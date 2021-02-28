@@ -31,12 +31,13 @@
               >
               <v-list-item-title v-if="[1, 6].includes(item.id)">
                 <v-select
-                  v-model="item.quantity"
+                  :value="item.quantity"
                   background-color="blue-grey darken-3"
                   :items="screens"
                   color="white"
                   item-color="blue-grey darken-3"
                   dark
+                  @change="updateQuantity({ quantity: $event, id: item.id })"
                 >
                 </v-select>
               </v-list-item-title>
@@ -84,7 +85,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations, mapGetters } from 'vuex'
 const numeral = require('numeral')
 export default {
   filters: {
@@ -94,13 +95,20 @@ export default {
   },
   data() {
     return {
-      screens: [1, 2, 3, 4],
-      totalPrice: 0,
+      screens: [1, 2, 3, 4, 5],
     }
   },
   computed: {
     ...mapState({
       products: (state) => state.cart.products,
+    }),
+    ...mapGetters({
+      totalPrice: 'cart/totalPrice',
+    }),
+  },
+  methods: {
+    ...mapMutations({
+      updateQuantity: 'cart/updateQuantity',
     }),
   },
 }
