@@ -1,6 +1,6 @@
 <template>
   <v-row class="expansion-panels-container">
-    <v-expansion-panels>
+    <v-expansion-panels v-model="panel">
       <v-expansion-panel>
         <v-expansion-panel-header color="blue-grey darken-4 white--text">
           1. Productos a comprar
@@ -47,8 +47,10 @@
               }}</v-list-item-title>
             </v-list-item>
             <v-list-item>
-              <v-list-item-avatar class="product"></v-list-item-avatar>
-              <v-list-item-title><strong>Total</strong></v-list-item-title>
+              <v-list-item-avatar color="white--text"
+                ><strong>Total</strong></v-list-item-avatar
+              >
+              <v-list-item-title class="product"></v-list-item-title>
               <v-list-item-title></v-list-item-title>
               <v-list-item-title
                 ><strong>{{
@@ -95,6 +97,7 @@ export default {
   },
   data() {
     return {
+      panel: 0,
       screens: [1, 2, 3, 4, 5],
     }
   },
