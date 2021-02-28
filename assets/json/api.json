@@ -5,6 +5,7 @@
           "name": "Netflix",
           "selected": false,
           "price": 10000,
+          "quantity": 1,
           "service": "Disfruta del mejor entretenimiento.",
           "imageUrl": "https://deadline.com/wp-content/uploads/2020/07/netflix-logo.png"
         },
@@ -13,6 +14,7 @@
           "name": "Amazon Prime",
           "selected": false,
           "price": 10000,
+          "quantity": 1,
           "service": "Acceso hasta 3 dispositivos.",
           "imageUrl": "https://sm.pcmag.com/t/pcmag_in/review/a/amazon-pri/amazon-prime-video_12d1.1920.jpg"
         },
@@ -21,6 +23,7 @@
           "name": "HBO GO",
           "selected": false,
           "price": 10000,
+          "quantity": 1,
           "service": "Acceso hasta 3 dispositivos.",
           "imageUrl": "https://resized.space.rga.com/image/upload/c_fill,fl_progressive,q_auto:low,fl_lossy,f_auto,h_1080,w_1920/v1511208172/production/file-5a1334eceac2633844ac4d4d"
         },
@@ -29,6 +32,7 @@
           "name": "Spotify Premium",
           "selected": false,
           "price": 8000,
+          "quantity": 1,
           "service": "Escucha offline desde tu dispositivo.",
           "imageUrl": "https://miracomosehace.com/wp-content/uploads/2020/03/Spotify-Premium.jpg"
         },
@@ -37,6 +41,7 @@
           "name": "Crunchyroll",
           "selected": false,
           "price": 10000,
+          "quantity": 1,
           "service": "El mejor anime y series de manga.",
           "imageUrl": "https://www.muycomputer.com/wp-content/uploads/2020/10/crunchyroll.png"
         },
@@ -45,6 +50,7 @@
           "name": "Disney Plus",
           "selected": false,
           "price": 8000,
+          "quantity": 1,
           "service": "Lo mejor de Marvel, Pixar y Start.",
           "imageUrl": "https://cdn.abcotvs.com/dip/images/5244277_041119-cc-disney-plus-key-art-img.jpg?w=1600"
         }

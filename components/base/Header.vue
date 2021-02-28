@@ -40,20 +40,28 @@
     <v-app-bar color="blue-grey darken-4" dense fixed clipped-left app>
       <v-app-bar-nav-icon color="white" @click.stop="drawer = !drawer" />
       <v-toolbar-title
-        class="mr-5 align-center toolbar-title"
+        class="mr-5 align-center toolbar-title pl-0"
         @click="$router.push('/')"
       >
         <span class="title white--text">Digital Mine</span>
       </v-toolbar-title>
       <v-spacer />
-      <v-toolbar-title class="mr-5 align-center">
-        <span class="header-item toolbar-options" to="/servicios"
+      <v-toolbar-title class="ml-5 align-center">
+        <span
+          class="header-item toolbar-options"
+          @click="$router.push('/servicios')"
           >Servicios</span
         >
-        <span class="header-item toolbar-options" to="/">Renovaciones</span>
-        <span class="header-item toolbar-options" to="/">Contacto</span>
-        <span class="header-item toolbar-options" to="/">Soporte</span>
-        <span v-if="products.length !== 0" class="header-item" to="/carrito">
+        <span class="header-item toolbar-options" @click="$router.push('/')"
+          >Renovaciones</span
+        >
+        <span class="header-item toolbar-options" @click="$router.push('/')"
+          >Contacto</span
+        >
+        <span class="header-item toolbar-options" @click="$router.push('/')"
+          >Soporte</span
+        >
+        <span v-if="products.length !== 0" class="header-item">
           <Cart :items="products" />
         </span>
       </v-toolbar-title>
@@ -126,7 +134,7 @@ export default {
   margin-right: 6px;
   font-weight: bold;
 }
-@media (min-width: 320px) and (max-width: 550px) {
+@media (min-width: 320px) and (max-width: 700px) {
   .toolbar-options {
     display: none;
   }

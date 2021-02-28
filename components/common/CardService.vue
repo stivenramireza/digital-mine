@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapMutations } from 'vuex'
 const numeral = require('numeral')
 export default {
   filters: {
@@ -52,11 +52,6 @@ export default {
     return {
       alert: false,
     }
-  },
-  computed: {
-    ...mapState({
-      products: (state) => state.cart.products,
-    }),
   },
   methods: {
     ...mapMutations({
