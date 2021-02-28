@@ -1,80 +1,31 @@
 <template>
-  <v-row align="center" justify="center" class="mb-10">
-    <div v-for="(item, index) in services" :key="index" class="mr-4">
-      <CardService
-        :id="item.id"
-        :name="item.name"
-        :price="item.price"
-        :service="item.service"
-        :image-url="item.imageUrl"
-      />
-    </div>
+  <v-row class="cards-container">
+    <v-col
+      v-for="(item, index) in $options.json.products"
+      :key="index"
+      cols="12"
+      md="4"
+      sm="6"
+    >
+      <CardService :product="item" />
+    </v-col>
   </v-row>
 </template>
 
 <script>
 import CardService from '@/components/common/CardService'
+import api from '@/assets/json/api.json'
 
 export default {
+  json: api,
   components: {
     CardService,
   },
-  data: () => ({
-    services: [
-      {
-        id: 1,
-        name: 'Netflix',
-        price: 10000,
-        service:
-          'Disfruta del mejor entretenimiento llevado de 1 a 5 pantallas.',
-        imageUrl:
-          'https://deadline.com/wp-content/uploads/2020/07/netflix-logo.png',
-      },
-      {
-        id: 2,
-        name: 'Amazon Prime',
-        price: 10000,
-        service: 'Acceso hasta 3 dispositivos al mismo tiempo.',
-        imageUrl:
-          'https://sm.pcmag.com/t/pcmag_in/review/a/amazon-pri/amazon-prime-video_12d1.1920.jpg',
-      },
-      {
-        id: 3,
-        name: 'HBO GO',
-        price: 10000,
-        service:
-          'Acceso hasta 3 dispositivos para que compartas con tus seres queridos.',
-        imageUrl:
-          'https://resized.space.rga.com/image/upload/c_fill,fl_progressive,q_auto:low,fl_lossy,f_auto,h_1080,w_1920/v1511208172/production/file-5a1334eceac2633844ac4d4d',
-      },
-      {
-        id: 4,
-        name: 'Spotify Premium',
-        price: 8000,
-        service:
-          'Descarga y escucha offline desde tu dispositivo y comparte tu música.',
-        imageUrl:
-          'https://miracomosehace.com/wp-content/uploads/2020/03/Spotify-Premium.jpg',
-      },
-      {
-        id: 5,
-        name: 'Crunchyroll',
-        price: 10000,
-        service:
-          'Disfruta del mejor anime y series de manga al mejor estilo otaku.',
-        imageUrl:
-          'https://www.muycomputer.com/wp-content/uploads/2020/10/crunchyroll.png',
-      },
-      {
-        id: 6,
-        name: 'Disney Plus',
-        price: 8000,
-        service:
-          'El mejor catálogo de series y películas de Marvel, Pixar y Start.',
-        imageUrl:
-          'https://cdn.abcotvs.com/dip/images/5244277_041119-cc-disney-plus-key-art-img.jpg?w=1600',
-      },
-    ],
-  }),
 }
 </script>
+
+<style scoped>
+.cards-container {
+  margin: 10px;
+}
+</style>

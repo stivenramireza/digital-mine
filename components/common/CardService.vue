@@ -1,44 +1,33 @@
 <template>
   <div>
-    <v-card
-      :id="id"
-      :loading="loading"
-      class="mx-auto my-12 mb-2 card-service"
-      max-height="400"
-      color="blue-grey darken-4 white--text"
-    >
-      <template slot="progress">
-        <v-progress-linear
-          color="white"
-          height="10"
-          indeterminate
-        ></v-progress-linear>
-      </template>
-      <v-img width="350" height="150" :src="imageUrl"></v-img>
+    <v-card :id="product.id" color="blue-grey darken-4 white--text">
+      <v-img :src="product.imageUrl" height="160  "></v-img>
       <v-col class="d-flex white--text" cols="12">
-        <v-card-text class="white--text">{{ service }}</v-card-text>
+        <v-card-text class="white--text">{{ product.service }}</v-card-text>
       </v-col>
-      <v-card-title class="white--text">{{ price | priceFormat }}</v-card-title>
+      <v-card-title class="white--text">{{
+        product.price | priceFormat
+      }}</v-card-title>
       <v-divider class="mx-4" color="white"></v-divider>
       <v-card-actions>
         <v-btn
-          v-if="!selected"
+          v-if="!product.selected"
           color="white"
           text
-          @click="addProduct(id, name)"
+          @click="add(product) + $forceUpdate() + showAlert()"
         >
           <v-icon left>mdi-cart</v-icon> Agregar al carrito
         </v-btn>
-        <v-btn v-else @click="removeProduct(id)">
+        <v-btn v-else @click="remove(product) + $forceUpdate() + showAlert()">
           <v-icon left>mdi-cart</v-icon> Eliminar del carrito
         </v-btn>
       </v-card-actions>
     </v-card>
-    <v-alert v-if="selected" type="success" :value="alert" dense>
-      Añadiste {{ name }} al carrito
+    <v-alert v-if="product.selected" type="success" :value="alert" class="mt-2">
+      Añadiste {{ product.name }} al carrito
     </v-alert>
-    <v-alert v-else type="error" :value="alert" dense>
-      Eliminaste {{ name }} del carrito
+    <v-alert v-else type="error" :value="alert" class="mt-2">
+      Eliminaste {{ product.name }} del carrito
     </v-alert>
   </div>
 </template>
@@ -53,62 +42,32 @@ export default {
     },
   },
   props: {
-    id: {
-      type: Number,
-      default: 0,
-      required: true,
-    },
-    name: {
-      type: String,
-      default: '',
-      required: true,
-    },
-    price: {
-      type: Number,
-      default: 0,
-      required: true,
-    },
-    service: {
-      type: String,
-      default: '',
-      required: true,
-    },
-    imageUrl: {
-      type: String,
-      default: '',
+    product: {
+      type: Object,
+      default: () => {},
       required: true,
     },
   },
-  data: () => ({
-    loading: false,
-    selected: false,
-    alert: false,
-  }),
+  data() {
+    return {
+      alert: false,
+    }
+  },
   computed: {
     ...mapState({
-      products: (state) => state.car.products,
+      products: (state) => state.cart.products,
     }),
   },
   methods: {
     ...mapMutations({
-      add: 'car/add',
-      remove: 'car/remove',
+      add: 'cart/add',
+      remove: 'cart/remove',
     }),
-    addProduct(id, name) {
-      this.loading = true
+    showAlert() {
       this.alert = true
-      setTimeout(() => (this.loading = false), 1000)
-      this.add({ id, name })
-      this.selected = true
-      setTimeout(() => (this.alert = false), 1000)
-    },
-    removeProduct(id) {
-      this.loading = true
-      this.alert = true
-      setTimeout(() => (this.loading = false), 1000)
-      this.remove(id)
-      this.selected = false
-      setTimeout(() => (this.alert = false), 1000)
+      setTimeout(() => {
+        this.alert = false
+      }, 2000)
     },
   },
 }

@@ -16,8 +16,7 @@
     "core-js": "^3.8.3",
     "numeral": "^2.0.6",
     "nuxt": "^2.15.2",
-    "typescript": "^4.1.5",
-    "vuesax": "^4.0.1-alpha.25"
+    "typescript": "^4.1.5"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^5.0.0",

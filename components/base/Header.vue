@@ -54,8 +54,7 @@
         <span class="header-item toolbar-options" to="/">Contacto</span>
         <span class="header-item toolbar-options" to="/">Soporte</span>
         <span v-if="products.length !== 0" class="header-item" to="/carrito">
-          <v-icon color="white">mdi-cart</v-icon>
-          <span class="dot">{{ products.length }}</span>
+          <Cart :items="products" />
         </span>
       </v-toolbar-title>
     </v-app-bar>
@@ -64,7 +63,12 @@
 
 <script>
 import { mapState } from 'vuex'
+import Cart from '@/components/common/Cart'
+
 export default {
+  components: {
+    Cart,
+  },
   data() {
     return {
       drawer: false,
@@ -78,7 +82,7 @@ export default {
   },
   computed: {
     ...mapState({
-      products: (state) => state.car.products,
+      products: (state) => state.cart.products,
     }),
   },
 }
