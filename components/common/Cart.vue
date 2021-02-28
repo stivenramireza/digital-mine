@@ -14,12 +14,9 @@
             :key="index"
             color="white"
           >
-            <v-img
-              :src="item.imageUrl"
-              width="30"
-              height="30"
-              class="mr-2"
-            ></v-img>
+            <v-list-item-avatar>
+              <v-img :src="item.imageUrl"></v-img>
+            </v-list-item-avatar>
             <v-list-item-title>{{ item.name }}</v-list-item-title>
           </v-list-item>
         </v-list>
