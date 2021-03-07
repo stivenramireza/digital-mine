@@ -1,21 +1,25 @@
 version: '3'
 services:
   digital-mine:
-    image: digital-mine:staging
-    networks:
-      - traefik-public
+    image: stivenramireza/digital-mine:staging
     ports:
       - 3000
+    networks:
+      - traefik-public
     deploy:
       labels:
         - traefik.enable=true
-        - traefik.tags=traefik-public
-        - traefik.port=3000
-        - traefik.frontend.rule=Host:staging.digitalmine.stivenramireza.com
         - traefik.docker.network=traefik-public
-        - traefik.redirectorservice.frontend.entryPoints=http
-        - traefik.redirectorservice.frontend.redirect.entryPoint=https
-        - traefik.webservice.frontend.entryPoints=https
+        - traefik.constraint-label=traefik-public
+        - traefik.http.routers.digital-mine-http.rule=Host(`${DOMAIN?Variable not set}`)
+        - traefik.http.routers.digital-mine-http.entrypoints=http
+        - traefik.http.routers.digital-mine-http.middlewares=https-redirect
+        - traefik.http.routers.digital-mine-https.rule=Host(`${DOMAIN?Variable not set}`)
+        - traefik.http.routers.digital-mine-https.middlewares=digital-mine-https
+        - traefik.http.routers.digital-mine-https.entrypoints=https
+        - traefik.http.routers.digital-mine-https.tls=true
+        - traefik.http.routers.digital-mine-https.tls.certresolver=le
+        - traefik.http.services.digital-mine.loadbalancer.server.port=3000
 networks:
   traefik-public:
     external: true
