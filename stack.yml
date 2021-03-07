@@ -11,10 +11,11 @@ services:
         - traefik.enable=true
         - traefik.docker.network=traefik-public
         - traefik.constraint-label=traefik-public
-        - traefik.http.routers.digital-mine-http.rule=Host(`${DOMAIN?Variable not set}`)
+        - traefik.http.middlewares.digital-mine-https.stripprefix.prefixes=/
+        - traefik.http.routers.digital-mine-http.rule=Host(`${DOMAIN?Variable not set}`) && PathPrefix(`/`)
         - traefik.http.routers.digital-mine-http.entrypoints=http
         - traefik.http.routers.digital-mine-http.middlewares=https-redirect
-        - traefik.http.routers.digital-mine-https.rule=Host(`${DOMAIN?Variable not set}`)
+        - traefik.http.routers.digital-mine-https.rule=Host(`${DOMAIN?Variable not set}`) && PathPrefix(`/`)
         - traefik.http.routers.digital-mine-https.middlewares=digital-mine-https
         - traefik.http.routers.digital-mine-https.entrypoints=https
         - traefik.http.routers.digital-mine-https.tls=true
