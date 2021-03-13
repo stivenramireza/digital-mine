@@ -10,7 +10,7 @@
     >
       <v-row align="center" justify="center" class="mt-5 mb-5">
         <img
-          src="https://assets.stivenramireza.com/spaces/digital-mine.png"
+          src="https://assets.stivenramireza.com/digital-mine/logo.png"
           alt="digital-mine-logo"
           width="50"
           height="50"
