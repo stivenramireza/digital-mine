@@ -3,5 +3,5 @@
 Digital Mine company web application.
 
 <p align="center">
-<img src="https://assets.stivenramireza.com/spaces/digital-mine.png">
+<img src="https://assets.stivenramireza.com/digital-mine/logo.png">
 </p>
