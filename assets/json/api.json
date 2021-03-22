@@ -4,8 +4,30 @@
           "id": 1,
           "name": "Netflix",
           "selected": false,
-          "price": 10000,
           "quantity": 1,
+          "price": 10000,
+          "prices": [
+            {
+              "quantity": 1,
+              "price": 10000
+            },
+            {
+              "quantity": 2,
+              "price": 16000
+            },
+            {
+              "quantity": 3,
+              "price": 21000
+            },
+            {
+              "quantity": 4,
+              "price": 26000
+            },
+            {
+              "quantity": 5,
+              "price": 30000
+            }
+          ],
           "service": "Disfruta del mejor entretenimiento.",
           "imageUrl": "https://deadline.com/wp-content/uploads/2020/07/netflix-logo.png"
         },
@@ -13,8 +35,30 @@
           "id": 2,
           "name": "Amazon Prime",
           "selected": false,
-          "price": 10000,
           "quantity": 1,
+          "price": 10000,
+          "prices": [
+            {
+              "quantity": 1,
+              "price": 10000
+            },
+            {
+              "quantity": 2,
+              "price": 20000
+            },
+            {
+              "quantity": 3,
+              "price": 30000
+            },
+            {
+              "quantity": 4,
+              "price": 40000
+            },
+            {
+              "quantity": 5,
+              "price": 50000
+            }
+          ],
           "service": "Acceso hasta 3 dispositivos.",
           "imageUrl": "https://sm.pcmag.com/t/pcmag_in/review/a/amazon-pri/amazon-prime-video_12d1.1920.jpg"
         },
@@ -22,8 +66,30 @@
           "id": 3,
           "name": "HBO GO",
           "selected": false,
-          "price": 10000,
           "quantity": 1,
+          "price": 10000,
+          "prices": [
+            {
+              "quantity": 1,
+              "price": 10000
+            },
+            {
+              "quantity": 2,
+              "price": 20000
+            },
+            {
+              "quantity": 3,
+              "price": 30000
+            },
+            {
+              "quantity": 4,
+              "price": 40000
+            },
+            {
+              "quantity": 5,
+              "price": 50000
+            }
+          ],
           "service": "Acceso hasta 3 dispositivos.",
           "imageUrl": "https://resized.space.rga.com/image/upload/c_fill,fl_progressive,q_auto:low,fl_lossy,f_auto,h_1080,w_1920/v1511208172/production/file-5a1334eceac2633844ac4d4d"
         },
@@ -31,8 +97,30 @@
           "id": 4,
           "name": "Spotify Premium",
           "selected": false,
-          "price": 8000,
           "quantity": 1,
+          "price": 8000,
+          "prices": [
+            {
+              "quantity": 1,
+              "price": 8000
+            },
+            {
+              "quantity": 2,
+              "price": 16000
+            },
+            {
+              "quantity": 3,
+              "price": 24000
+            },
+            {
+              "quantity": 4,
+              "price": 32000
+            },
+            {
+              "quantity": 5,
+              "price": 40000
+            }
+          ],
           "service": "Escucha offline desde tu dispositivo.",
           "imageUrl": "https://miracomosehace.com/wp-content/uploads/2020/03/Spotify-Premium.jpg"
         },
@@ -40,8 +128,30 @@
           "id": 5,
           "name": "Crunchyroll",
           "selected": false,
-          "price": 10000,
           "quantity": 1,
+          "price": 10000,
+          "prices": [
+            {
+              "quantity": 1,
+              "price": 10000
+            },
+            {
+              "quantity": 2,
+              "price": 20000
+            },
+            {
+              "quantity": 3,
+              "price": 30000
+            },
+            {
+              "quantity": 4,
+              "price": 40000
+            },
+            {
+              "quantity": 5,
+              "price": 50000
+            }
+          ],
           "service": "El mejor anime y series de manga.",
           "imageUrl": "https://www.muycomputer.com/wp-content/uploads/2020/10/crunchyroll.png"
         },
@@ -49,10 +159,63 @@
           "id": 6,
           "name": "Disney Plus",
           "selected": false,
-          "price": 8000,
           "quantity": 1,
+          "price": 8000,
+          "prices": [
+            {
+              "quantity": 1,
+              "price": 8000
+            },
+            {
+              "quantity": 2,
+              "price": 16000
+            },
+            {
+              "quantity": 3,
+              "price": 24000
+            },
+            {
+              "quantity": 4,
+              "price": 32000
+            },
+            {
+              "quantity": 5,
+              "price": 40000
+            }
+          ],
           "service": "Lo mejor de Marvel, Pixar y Start.",
           "imageUrl": "https://cdn.abcotvs.com/dip/images/5244277_041119-cc-disney-plus-key-art-img.jpg?w=1600"
+        },
+        {
+          "id": 7,
+          "name": "Plex",
+          "selected": false,
+          "quantity": 1,
+          "price": 10000,
+          "prices": [
+            {
+              "quantity": 1,
+              "price": 10000
+            },
+            {
+              "quantity": 2,
+              "price": 20000
+            },
+            {
+              "quantity": 3,
+              "price": 30000
+            },
+            {
+              "quantity": 4,
+              "price": 40000
+            },
+            {
+              "quantity": 5,
+              "price": 50000
+            }
+          ],
+          "service": "Disfruta de excelentes películas y series.",
+          "imageUrl": "https://www.muycomputer.com/wp-content/uploads/2020/05/Plex.png"
         }
     ]
 }

@@ -17,18 +17,16 @@
         <v-select
           :value="item.quantity"
           background-color="blue-grey darken-3"
-          :items="screens"
+          :items="[1, 2, 3, 4, 5]"
           color="white"
           item-color="blue-grey darken-3"
           dark
-          @change="updateQuantity({ quantity: $event, id: item.id })"
+          @change="updateProduct({ quantity: $event, id: item.id })"
         >
         </v-select>
       </v-list-item-title>
       <v-list-item-title v-else>{{ item.quantity }}</v-list-item-title>
-      <v-list-item-title>{{
-        (item.price * item.quantity) | priceFormat
-      }}</v-list-item-title>
+      <v-list-item-title>{{ item.price | priceFormat }}</v-list-item-title>
     </v-list-item>
     <v-list-item>
       <v-list-item-avatar color="white--text"
@@ -52,11 +50,6 @@ export default {
       return '$' + numeral(value).format('0,0,0,0,0')
     },
   },
-  data() {
-    return {
-      screens: [1, 2, 3, 4, 5],
-    }
-  },
   computed: {
     ...mapState({
       products: (state) => state.cart.products,
@@ -67,7 +60,7 @@ export default {
   },
   methods: {
     ...mapMutations({
-      updateQuantity: 'cart/updateQuantity',
+      updateProduct: 'cart/updateProduct',
     }),
   },
 }

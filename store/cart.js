@@ -13,11 +13,14 @@ export const mutations = {
       (product) => product.id !== payload.id
     )
   },
-  updateQuantity(state, payload) {
+  updateProduct(state, payload) {
     const products = []
     state.products.forEach((product) => {
       if (product.id === payload.id) {
         product.quantity = payload.quantity
+        product.price = product.prices.filter(
+          (item) => item.quantity === product.quantity
+        )[0].price
       }
       products.push(product)
     })
@@ -27,9 +30,6 @@ export const mutations = {
 
 export const getters = {
   totalPrice: (state) => {
-    return state.products.reduce(
-      (acc, { quantity, price }) => acc + quantity * price,
-      0
-    )
+    return state.products.reduce((acc, { price }) => acc + price, 0)
   },
 }
