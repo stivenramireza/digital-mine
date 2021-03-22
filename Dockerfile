@@ -12,5 +12,8 @@ COPY . ./
 
 EXPOSE 3000
 
+ARG DOCKER_ENV
+ENV NODE_ENV=${DOCKER_ENV}
+
 RUN npm run build
 CMD ["npm", "start"]

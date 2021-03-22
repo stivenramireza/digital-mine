@@ -3,7 +3,7 @@
     <v-expansion-panels v-model="panel">
       <v-expansion-panel>
         <v-expansion-panel-header color="blue-grey darken-4 white--text">
-          1. Productos a comprar
+          1. Servicios a adquirir
           <template #actions>
             <v-icon color="white"> $expand </v-icon>
           </template>
@@ -12,7 +12,6 @@
           <CartList />
         </v-expansion-panel-content>
       </v-expansion-panel>
-
       <v-expansion-panel>
         <v-expansion-panel-header
           disable-icon-rotate
@@ -29,10 +28,26 @@
       </v-expansion-panel>
     </v-expansion-panels>
     <v-row class="mt-2 btn-pay">
-      <v-btn tile color="blue-grey darken-4 white--text">
-        <v-icon color="white" left> mdi-currency-usd </v-icon>
-        Pagar
-      </v-btn>
+      <form action="https://checkout.wompi.co/p/" method="GET">
+        <!-- OBLIGATORIOS -->
+        <input type="hidden" name="public-key" :value="wompiPublicKey" />
+        <input type="hidden" name="currency" value="COP" />
+        <input
+          type="hidden"
+          name="amount-in-cents"
+          :value="Number(String(totalPrice) + '00')"
+        />
+        <input type="hidden" name="reference" value="10006" />
+        <input
+          type="hidden"
+          name="redirect-url"
+          :value="`${digitalMineDomain}/pago-exitoso`"
+        />
+        <v-btn tile color="blue-grey darken-4 white--text" type="submit">
+          <v-icon color="white" left> mdi-currency-usd </v-icon>
+          Pagar
+        </v-btn>
+      </form>
     </v-row>
   </v-row>
 </template>
@@ -40,6 +55,7 @@
 <script>
 import CartList from '@/components/common/CartList'
 import ContactForm from '@/components/common/ContactForm'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -49,7 +65,23 @@ export default {
   data() {
     return {
       panel: 0,
+      digitalMineDomain: process.env.DIGITAL_MINE_DOMAIN,
+      wompiPublicKey: process.env.WOMPI_PUBLIC_KEY,
     }
+  },
+  head() {
+    return {
+      script: [
+        {
+          src: 'https://checkout.wompi.co/widget.js',
+        },
+      ],
+    }
+  },
+  computed: {
+    ...mapGetters({
+      totalPrice: 'cart/totalPrice',
+    }),
   },
 }
 </script>

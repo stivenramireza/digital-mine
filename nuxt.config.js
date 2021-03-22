@@ -1,3 +1,19 @@
+const path = require('path')
+const fs = require('fs')
+const env = process.env.NODE_ENV
+
+const envPath = path.resolve(
+  process.cwd(),
+  env !== 'development' ? `.env.${env}` : '.env.dev'
+)
+const defaultEnvPath = path.resolve(process.cwd(), '.env')
+
+require('dotenv').config({
+  path: fs.existsSync(envPath) ? envPath : defaultEnvPath
+})
+
+console.info(`Using ${env} environment variables`)
+
 export default {
   server: {
     host: '0.0.0.0',
@@ -27,6 +43,11 @@ export default {
   modules: ['@nuxtjs/axios', '@nuxtjs/vuetify'],
 
   axios: {},
+
+  env: {
+    DIGITAL_MINE_DOMAIN: process.env.DIGITAL_MINE_DOMAIN,
+    WOMPI_PUBLIC_KEY: process.env.WOMPI_PUBLIC_KEY
+  },
 
   build: {
     extend(config, ctx) {

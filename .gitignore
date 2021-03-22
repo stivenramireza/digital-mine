@@ -5,3 +5,5 @@ static/sw.js
 .eslintcache
 .env
 .env.dev
+.env.staging
+.env.test

@@ -3,7 +3,7 @@
     <v-list-item>
       <v-list-item-avatar></v-list-item-avatar>
       <v-list-item-title class="product"
-        ><strong>Producto</strong></v-list-item-title
+        ><strong>Servicio</strong></v-list-item-title
       >
       <v-list-item-title><strong>Cantidad</strong></v-list-item-title>
       <v-list-item-title><strong>Precio</strong></v-list-item-title>
